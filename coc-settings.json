@@ -1,0 +1,10 @@
+{
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "suggest.noselect": true,
+  "suggest.enablePreselect": false,
+  "coc.preferences.formatOnSaveFiletypes": ["json"],
+  "explore.file.column.indent.indentLine": true,
+  "explore.file.showHiddenFiles": true,
+  "explore.icon.enableNerdfont": true,
+  "explore.file.column.git.showIgnored": true
+}
