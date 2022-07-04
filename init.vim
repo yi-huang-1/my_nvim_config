@@ -36,7 +36,8 @@ let g:coc_global_extensions = [
 			\ 'coc-json',
 			\ 'coc-vimlsp',
 			\ 'coc-snippets',
-			\ 'coc-explorer']
+			\ 'coc-explorer',
+			\ 'coc-tsserver']
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=100
@@ -82,6 +83,18 @@ nmap <silent> gr <Plug>(coc-references)
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -129,8 +142,19 @@ Plug 'tpope/vim-surround'
 " Plug 'valloric/youcompleteme'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'cdelledonne/vim-cmake'
+if has("nvim")
+	Plug 'antoinemadec/FixCursorHold.nvim'
+endif
+
 " Initialize plugin system
 call plug#end()
 
 let g:SnazzyTransparent = 1
 color snazzy
+
+let g:cmake_link_compile_commands = 1
+
+nmap <leader>cg :CMakeGenerate<cr>
+nmap <leader>cb :CMakeBuild<cr>
+

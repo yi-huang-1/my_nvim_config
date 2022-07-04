@@ -6,5 +6,18 @@
   "explore.file.column.indent.indentLine": true,
   "explore.file.showHiddenFiles": true,
   "explore.icon.enableNerdfont": true,
-  "explore.file.column.git.showIgnored": true
+  "explore.file.column.git.showIgnored": true,
+  "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia",
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    }
+  }
 }
