@@ -94,6 +94,9 @@ packer.startup(function(use)
 	})
     use ('lervag/vimtex')
 
+	-- leap
+	use('ggandor/leap.nvim')
+
 end)
 
 config = {

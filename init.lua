@@ -20,3 +20,7 @@ require("plugin-config.surround")
 require("plugin-config.indent_blankline")
 require("plugin-config.coc")
 
+-- Vim Leap
+require('leap').add_default_mappings()
+
+require('leap').opts.highlight_unlabeled_phase_one_targets = true

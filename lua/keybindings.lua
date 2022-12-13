@@ -142,4 +142,8 @@ pluginKeys.comment = {
 	},
 }
 
+-- Vim Leap
+vim.keymap.set({'x', 'o', 'n'}, 't', '<Plug>(leap-forward-to)')
+vim.keymap.set({'x', 'o', 'n'}, 'T', '<Plug>(leap-forward-to)')
+
 return pluginKeys
