@@ -74,6 +74,7 @@ packer.startup(function(use)
 	-- treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	-- use({ "nvim-treesitter/nvim-treesitter"})
+	use({"p00f/nvim-ts-rainbow"})
 
 	-- common snippets
 	use("rafamadriz/friendly-snippets")

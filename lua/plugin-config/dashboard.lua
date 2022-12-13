@@ -46,16 +46,16 @@ db.custom_center = {
   --   desc = "Edit init.lua                       ",
   --   action = "edit ~/.config/nvim/init.lua",
   -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Find file                           ",
-  --   action = "Telescope find_files",
-  -- },
-  -- {
-  --   icon = "  ",
-  --   desc = "Find text                           ",
-  --   action = "Telescopecope live_grep",
-  -- },
+  {
+    icon = "  ",
+    desc = "Find file                           ",
+    action = "Telescope find_files",
+  },
+  {
+    icon = "  ",
+    desc = "Find text                           ",
+    action = "Telescopecope live_grep",
+  },
 }
 
 

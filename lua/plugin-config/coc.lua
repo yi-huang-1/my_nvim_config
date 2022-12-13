@@ -36,6 +36,7 @@ g.coc_global_extensions = {
 	'coc-bibtex',
 	'coc-pydocstring',
 	'coc-julia',
+	'coc-prettier',
 }
 
 function _G.check_back_space()
