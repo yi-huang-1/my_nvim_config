@@ -75,44 +75,11 @@ packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	-- use({ "nvim-treesitter/nvim-treesitter"})
 
-	--------------------- LSP --------------------
-	use({ "williamboman/mason.nvim" })
-	use({ "williamboman/mason-lspconfig.nvim" })
-	-- Lspconfig
-	use({ "neovim/nvim-lspconfig" })
-
-	-- complete engine
-	use("hrsh7th/nvim-cmp")
-
-	-- snippet engine
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-
-	-- complete source
-	use("hrsh7th/vim-vsnip")
-	use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
-	use("hrsh7th/cmp-vsnip")
-	use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
-	use("hrsh7th/cmp-path") -- { name = 'path' }
-	use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
-	use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
-
 	-- common snippets
 	use("rafamadriz/friendly-snippets")
 
-	-- UI 增强
-	use("onsails/lspkind-nvim")
-	use("tami5/lspsaga.nvim")
-
 	-- indent-blankline
 	use("lukas-reineke/indent-blankline.nvim")
-
-	-- formatting
-	-- use("mhartington/formatter.nvim")
-	use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-
-	-- nvim-autopairs
-	use("windwp/nvim-autopairs")
 
 	-- Comment
 	use("numToStr/Comment.nvim")
@@ -120,8 +87,13 @@ packer.startup(function(use)
 	-- surround
 	use("ur4ltz/surround.nvim")
 
-	-- JSON 增强
-	use("b0o/schemastore.nvim")
+	-- coc
+	use ({
+		'neoclide/coc.nvim',
+		branch='release',
+	})
+    use ('lervag/vimtex')
+
 end)
 
 config = {

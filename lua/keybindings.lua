@@ -52,7 +52,7 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 -- move selected contents
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
-map("v", "K", ":move '<-1<CR>gv-gv", opt)
+map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
 -- Scroll up & down
 map("n", "<C-j>", "4j", opt)
@@ -127,104 +127,6 @@ pluginKeys.telescopeList = {
 		["<C-d>"] = "preview_scrolling_down",
 	},
 }
-
---[[
--- lsp callback functions
-pluginKeys.mapLSP = function(mapbuf)
-	mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
-	mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
-	mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-	mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
-	mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
-	-- diagnostic
-	mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-	mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
-	mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-	mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
-	-- 未用
-	-- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
-	-- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-	-- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
-	-- mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
-	-- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
-	-- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-	-- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
-	-- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
-end
---]]
-
-map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
-map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
-map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-map("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
-map("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
--- diagnostic
-map("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
-map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-map("n", "<leader>f", "<cmd>lua vim.lsp.buf.format{async = true}<CR>", opt)
---map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
--- 未用
--- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
--- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
--- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
--- mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
--- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
--- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
--- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
--- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
-
--- nvim-cmp
-pluginKeys.cmp = function(cmp)
-	local feedkey = function(key, mode)
-		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-	end
-
-	local has_words_before = function()
-		local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-		return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-	end
-	return {
-		-- open cmp
-		["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		-- 取消
-		["<A-,>"] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<CR>"] = cmp.mapping.confirm({
-			select = true,
-			behavior = cmp.ConfirmBehavior.Replace,
-		}),
-		-- scrolling if multiple windows
-		["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-		["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-
-		-- Super Tab
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif vim.fn["vsnip#available"](1) == 1 then
-				feedkey("<Plug>(vsnip-expand-or-jump)", "")
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-			end
-		end, { "i", "s" }),
-
-		["<S-Tab>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-				feedkey("<Plug>(vsnip-jump-prev)", "")
-			end
-		end, { "i", "s" }),
-		-- end of super Tab
-	}
-end
 
 -- see ./lua/plugin-config/comment.lua
 pluginKeys.comment = {

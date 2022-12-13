@@ -14,15 +14,9 @@ require("plugin-config.telescope")
 require("plugin-config.dashboard")
 require("plugin-config.project")
 require("plugin-config.nvim-treesitter")
-require("plugin-config.nvim-autopairs")
 require("plugin-config.comment")
 require("plugin-config.surround")
 
--- lsp
-require("lsp.setup")
-require("lsp.ui")
-require("lsp.cmp")
--- require("lsp.formatter")
-require("lsp.null-ls")
-
 require("plugin-config.indent_blankline")
+require("plugin-config.coc")
+
