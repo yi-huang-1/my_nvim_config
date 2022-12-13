@@ -16,6 +16,7 @@ require("plugin-config.project")
 require("plugin-config.nvim-treesitter")
 require("plugin-config.nvim-autopairs")
 require("plugin-config.comment")
+require("plugin-config.surround")
 
 -- lsp
 require("lsp.setup")

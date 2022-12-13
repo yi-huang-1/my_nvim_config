@@ -111,11 +111,14 @@ packer.startup(function(use)
 	-- use("mhartington/formatter.nvim")
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
 
-    -- nvim-autopairs
-    use("windwp/nvim-autopairs")
+	-- nvim-autopairs
+	use("windwp/nvim-autopairs")
 
-    -- Comment
-    use("numToStr/Comment.nvim")
+	-- Comment
+	use("numToStr/Comment.nvim")
+
+	-- surround
+	use("ur4ltz/surround.nvim")
 
 	-- JSON 增强
 	use("b0o/schemastore.nvim")
