@@ -114,6 +114,9 @@ packer.startup(function(use)
     -- nvim-autopairs
     use("windwp/nvim-autopairs")
 
+    -- Comment
+    use("numToStr/Comment.nvim")
+
 	-- JSON 增强
 	use("b0o/schemastore.nvim")
 end)
