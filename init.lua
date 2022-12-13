@@ -24,3 +24,14 @@ require("plugin-config.coc")
 require('leap').add_default_mappings()
 
 require('leap').opts.highlight_unlabeled_phase_one_targets = true
+
+require('flit').setup {
+	keys = { f = 'f', F = 'F', t = ']', T = '}' },
+	--keys = { f = 'f', F = 'F'},
+	-- A string like "nv", "nvo", "o", etc.
+	labeled_modes = "v",
+	multiline = true,
+	-- Like `leap`s similar argument (call-specific overrides).
+	-- E.g.: opts = { equivalence_classes = {} }
+	opts = {}
+}

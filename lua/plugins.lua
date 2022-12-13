@@ -96,6 +96,7 @@ packer.startup(function(use)
 
 	-- leap
 	use('ggandor/leap.nvim')
+	use('ggandor/flit.nvim')
 
 end)
 

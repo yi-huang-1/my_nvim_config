@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/Users/yihuang/.local/share/nvim/site/pack/packer/start/dracula.nvim",
     url = "https://github.com/Mofiqul/dracula.nvim"
   },
+  ["flit.nvim"] = {
+    loaded = true,
+    path = "/Users/yihuang/.local/share/nvim/site/pack/packer/start/flit.nvim",
+    url = "https://github.com/ggandor/flit.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/yihuang/.local/share/nvim/site/pack/packer/start/friendly-snippets",
