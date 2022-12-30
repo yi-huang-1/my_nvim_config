@@ -183,11 +183,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/yihuang/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
-  },
-  vimtex = {
-    loaded = true,
-    path = "/Users/yihuang/.local/share/nvim/site/pack/packer/start/vimtex",
-    url = "https://github.com/lervag/vimtex"
   }
 }
 
