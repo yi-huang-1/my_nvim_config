@@ -93,7 +93,7 @@ packer.startup(function(use)
 		'neoclide/coc.nvim',
 		branch='release',
 	})
-    use ('lervag/vimtex')
+    -- use ('lervag/vimtex')
 
 	-- leap
 	use('ggandor/leap.nvim')
