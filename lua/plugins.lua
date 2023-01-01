@@ -36,6 +36,7 @@ packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	-- Colorscheme
 	use("Mofiqul/dracula.nvim")
+	use("folke/tokyonight.nvim")
 	-- Custom plugins ---------------------
 	use({
 		"nvim-tree/nvim-tree.lua",
