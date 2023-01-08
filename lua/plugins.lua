@@ -100,6 +100,9 @@ packer.startup(function(use)
 	use('ggandor/leap.nvim')
 	use('ggandor/flit.nvim')
 
+	-- docstring
+	use("heavenshell/vim-pydocstring")
+
 end)
 
 config = {
