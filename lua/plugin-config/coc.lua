@@ -34,7 +34,6 @@ g.coc_global_extensions = {
 	'coc-pairs',
 	'coc-ltex',
 	'coc-bibtex',
-	'coc-pydocstring',
 	'coc-julia',
 	'coc-prettier',
 }
@@ -116,6 +115,10 @@ keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
 keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
 keyset("n", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
 
+-- pydocstring
+keyset("n", "<C-_>", "<Plug>(pydocstring)", {silent = true})
+
+
 -- Setup formatexpr specified filetype(s)
 vim.api.nvim_create_autocmd("FileType", {
     group = "CocGroup",
@@ -137,7 +140,7 @@ vim.api.nvim_create_autocmd("User", {
 local opts = {silent = true, nowait = true}
 keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
-keyset("n", "<leader>l", "<Plug>(coc-codeaction-line)", opts)
+-- keyset("n", "<leader>l", "<Plug>(coc-codeaction-line)", opts)
 keyset("n", "<leader>A", "<Plug>(coc-codeaction)", opts)
 
 -- Remap keys for apply code actions at the cursor position.
