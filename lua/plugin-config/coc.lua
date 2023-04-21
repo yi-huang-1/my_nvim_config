@@ -36,6 +36,7 @@ g.coc_global_extensions = {
 	'coc-bibtex',
 	'coc-julia',
 	'coc-prettier',
+	'coc-json',
 }
 
 g.pydocstring_doq_path = '/Users/yihuang/opt/anaconda3/bin/doq'
@@ -43,6 +44,8 @@ g.pydocstring_doq_path = '/Users/yihuang/opt/anaconda3/bin/doq'
 -- g.pydocstring_formatter = 'sphinx'
 g.pydocstring_formatter = 'google'
 
+-- g.prettier.tabWidth = 4
+--
 function _G.check_back_space()
     local col = fn.col('.') - 1
     if col == 0 or fn.getline('.'):sub(col, col):match('%s') then

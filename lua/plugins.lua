@@ -67,7 +67,7 @@ packer.startup(function(use)
 	use("LinArcX/telescope-env.nvim")
 
 	-- dashboard-nvim
-	use("glepnir/dashboard-nvim")
+	-- use("glepnir/dashboard-nvim")
 
 	-- project
 	use("ahmedkhalf/project.nvim")
