@@ -39,7 +39,7 @@ g.coc_global_extensions = {
 	'coc-json',
 }
 
-g.pydocstring_doq_path = '/Users/yihuang/opt/anaconda3/bin/doq'
+g.pydocstring_doq_path = '/Users/yihuang/micromamba/envs/cem-torch2/bin/doq'
 -- g.pydocstring_formatter = 'numpy'
 -- g.pydocstring_formatter = 'sphinx'
 g.pydocstring_formatter = 'google'
