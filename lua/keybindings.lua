@@ -5,6 +5,12 @@ local map = vim.api.nvim_set_keymap
 
 local opt = { noremap = true, silent = true }
 
+-- block keys
+vim.keymap.set({"n", "i"}, "<Left>", "<Nop>")
+vim.keymap.set({"n", "i"}, "<Right>", "<Nop>")
+vim.keymap.set({"n", "i"}, "<Up>", "<Nop>")
+vim.keymap.set({"n", "i"}, "<Down>", "<Nop>")
+
 -- back to normal
 map("i", "jj", "<Esc>", opt)
 
@@ -55,8 +61,8 @@ map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
 -- Scroll up & down
-map("n", "<C-j>", "4j", opt)
-map("n", "<C-k>", "4k", opt)
+-- map("n", "<C-j>", "4j", opt)
+-- map("n", "<C-k>", "4k", opt)
 map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
 
@@ -79,25 +85,25 @@ local pluginKeys = {}
 -- alt + m open or close tree
 map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
 -- list of keys
-pluginKeys.nvimTreeList = {
-	-- open files or folders
-	{ key = { "CR", "o", "<2-LeftMouse>" }, action = "edit" },
-	-- split open files
-	{ key = "v", action = "vsplit" },
-	{ key = "h", action = "split" },
-	-- show hidden files
-	{ key = "i", action = "toggle_custom" }, -- connect with filters
-	{ key = ".", action = "toggle_dotfiles" }, -- hide (dotfiles)
-	-- file operations
-	{ key = "<F5>", action = "refresh" },
-	{ key = "a", action = "create" },
-	{ key = "d", action = "remove" },
-	{ key = "r", action = "rename" },
-	{ key = "x", action = "cut" },
-	{ key = "c", action = "copy" },
-	{ key = "p", action = "paste" },
-	{ key = "s", action = "system_open" },
-}
+-- pluginKeys.nvimTreeList = {
+-- 	-- open files or folders
+-- 	{ key = { "CR", "o", "<2-LeftMouse>" }, action = "edit" },
+-- 	-- split open files
+-- 	{ key = "v", action = "vsplit" },
+-- 	{ key = "h", action = "split" },
+-- 	-- show hidden files
+-- 	{ key = "i", action = "toggle_custom" }, -- connect with filters
+-- 	{ key = ".", action = "toggle_dotfiles" }, -- hide (dotfiles)
+-- 	-- file operations
+-- 	{ key = "<F5>", action = "refresh" },
+-- 	{ key = "a", action = "create" },
+-- 	{ key = "d", action = "remove" },
+-- 	{ key = "r", action = "rename" },
+-- 	{ key = "x", action = "cut" },
+-- 	{ key = "c", action = "copy" },
+-- 	{ key = "p", action = "paste" },
+-- 	{ key = "s", action = "system_open" },
+-- }
 
 -- bufferline
 -- swith tab
@@ -109,41 +115,5 @@ map("n", "<C-w>", ":Bdelete!<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
-
--- Telescope
--- find files
-map("n", "<C-p>", ":Telescope find_files<CR>", opt)
-map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
-
-pluginKeys.telescopeList = {
-	i = {
-		-- move up & down
-		["<C-j>"] = "move_selection_next",
-		["<C-k>"] = "move_selection_previous",
-		["<Down>"] = "move_selection_next",
-		["<Up>"] = "move_selection_previous",
-		-- history
-		["<C-u>"] = "preview_scrolling_up",
-		["<C-d>"] = "preview_scrolling_down",
-	},
-}
-
--- see ./lua/plugin-config/comment.lua
-pluginKeys.comment = {
-	-- Normal 模式快捷键
-	toggler = {
-		line = "gcc", -- 行注释
-		block = "gbc", -- 块注释
-	},
-	-- Visual 模式
-	opleader = {
-		line = "gc",
-		bock = "gb",
-	},
-}
-
--- Vim Leap
-vim.keymap.set({'x', 'o', 'n'}, 't', '<Plug>(leap-forward-to)')
-vim.keymap.set({'x', 'o', 'n'}, 'T', '<Plug>(leap-forward-to)')
 
 return pluginKeys

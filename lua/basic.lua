@@ -1,6 +1,7 @@
 -- utf 8
 vim.g.encoding = "UTF-8"
 vim.g.fileencoding = 'utf-8'
+
 -- jkhl move cursor keeping 8 lines
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
@@ -78,4 +79,9 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 -- disable show mode
 vim.o.showmode = false
+-- undo dir
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
+-- exrc
+vim.opt.exrc = true
 
