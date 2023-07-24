@@ -44,8 +44,9 @@ map("n", "sk", ":resize -4<CR>", opt)
 map("n", "s=", "<C-w>=", opt)
 
 -- Terminal
-map("n", "<leader>t", ":sp | terminal<CR>", opt)
-map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
+-- map("n", "<leader>t", ":sp | terminal<CR>", opt)
+-- map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
+map("n", "<leader>t", ":ToggleTerm direction=float<CR>", opt)
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 map("t", "<leader>h", [[ <C-\><C-N><C-w>h ]], opt)
 map("t", "<leader>j", [[ <C-\><C-N><C-w>j ]], opt)

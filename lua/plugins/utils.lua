@@ -16,6 +16,11 @@ return {
 		end
 	},
 	{
+		'akinsho/toggleterm.nvim',
+		version = "*",
+		config = true,
+	},
+	{
 		"windwp/nvim-autopairs",
 		opts = {
 			enable_check_bracket_line = false,
@@ -151,10 +156,10 @@ return {
 		"ellisonleao/glow.nvim",
 		config = true,
 	},
-	{
-		"folke/which-key.nvim",
-		config = true,
-	},
+	-- {
+	-- 	"folke/which-key.nvim",
+	-- 	config = true,
+	-- },
 	{
 		-- enhance a/i to text objects
 		'echasnovski/mini.ai',
