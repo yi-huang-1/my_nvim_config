@@ -82,37 +82,13 @@ map("i", "<C-l>", "<Esc>A", opt)
 -- Pugins keys
 local pluginKeys = {}
 
--- nvim-treee
--- alt + m open or close tree
-map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
--- list of keys
--- pluginKeys.nvimTreeList = {
--- 	-- open files or folders
--- 	{ key = { "CR", "o", "<2-LeftMouse>" }, action = "edit" },
--- 	-- split open files
--- 	{ key = "v", action = "vsplit" },
--- 	{ key = "h", action = "split" },
--- 	-- show hidden files
--- 	{ key = "i", action = "toggle_custom" }, -- connect with filters
--- 	{ key = ".", action = "toggle_dotfiles" }, -- hide (dotfiles)
--- 	-- file operations
--- 	{ key = "<F5>", action = "refresh" },
--- 	{ key = "a", action = "create" },
--- 	{ key = "d", action = "remove" },
--- 	{ key = "r", action = "rename" },
--- 	{ key = "x", action = "cut" },
--- 	{ key = "c", action = "copy" },
--- 	{ key = "p", action = "paste" },
--- 	{ key = "s", action = "system_open" },
--- }
-
 -- bufferline
 -- swith tab
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 -- close tab
 -- "moll/vim-bbye"
-map("n", "<C-w>", ":Bdelete!<CR>", opt)
+map("n", "<C-w>", ":bw<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
