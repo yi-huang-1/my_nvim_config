@@ -1,19 +1,20 @@
 return {
 	{
 		"rhysd/accelerated-jk",
-		config = function()
-			vim.keymap.set("n", "j", "<Plug>(accelerated_jk_gj)")
-			vim.keymap.set("n", "k", "<Plug>(accelerated_jk_gk)")
-		end,
+		keys = {
+			{ "j", "<Plug>(accelerated_jk_gj)" },
+			{ "k", "<Plug>(accelerated_jk_gk)" },
+
+		},
 	},
 	{
 		"folke/persistence.nvim",
-		config = function()
-			require("persistence").setup()
-			vim.keymap.set("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]])
-			vim.keymap.set("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true})<cr>]])
-			vim.keymap.set("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]])
-		end
+		keys = {
+			{ "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]] },
+			{ "<leader>ql", [[<cmd>lua require("persistence").load({ last = true})<cr>]] },
+			{ "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]] },
+		},
+		config = true,
 	},
 	{
 		'akinsho/toggleterm.nvim',
@@ -22,6 +23,7 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
+		event = "VeryLazy",
 		opts = {
 			enable_check_bracket_line = false,
 		},
@@ -33,140 +35,81 @@ return {
 	},
 	{
 		"folke/flash.nvim",
-		config = function()
-			require("flash").setup()
-			vim.keymap.set({ "n", "x", "o" }, "s",
+		keys = {
+			{
+				"s",
+				mode = { "n", "x", "o" },
 				function()
-					require("flash").jump({
-						search = {
-							mode = function(str)
-								return "\\<" .. str
-							end,
-						},
-					})
-				end
-			)
-			vim.keymap.set({ "n", "x", "o" }, "s",
+					require("flash").jump()
+				end,
+				desc = "Flash",
+			},
+			{
+				"S",
+				mode = { "n", "o", "x" },
 				function()
 					require("flash").treesitter()
-				end
-			)
-			vim.keymap.set({ "o" }, "r",
+				end,
+				desc = "Flash Treesitter",
+			},
+			{
+				"r",
+				mode = "o",
 				function()
 					require("flash").remote()
-				end
-			)
-			vim.keymap.set({ "o", "x" }, "r",
+				end,
+				desc = "Remote Flash",
+			},
+			{
+				"R",
+				mode = { "o", "x" },
 				function()
 					require("flash").treesitter_search()
-				end
-			)
-		end,
-	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		config = function()
-			local function my_on_attach(bufnr)
-				local api = require "nvim-tree.api"
-
-				local function opts(desc)
-					return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-				end
-
-				-- default mappings
-				api.config.mappings.default_on_attach(bufnr)
-
-				-- custom mappings
-				vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
-				vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-			end
-
-			-- pass to setup along with your other options
-			require("nvim-tree").setup {
-				---
-				on_attach = my_on_attach,
-				---
-				-- git status
-				git = {
-					enable = true,
-				},
-				-- project plugin
-				update_cwd = true,
-				update_focused_file = {
-					enable = true,
-					update_cwd = true,
-				},
-				-- hide .* files and node_modules
-				filters = {
-					dotfiles = false,
-					custom = { 'node_modules' },
-				},
-				view = {
-					-- width
-					width = 40,
-					-- side location
-					side = 'left',
-					-- hiden root
-					hide_root_folder = false,
-					-- custom shortcuts
-					mappings = {
-						custom_only = false,
-						list = {
-							-- open files or folders
-							{ key = { "CR", "o", "<2-LeftMouse>" }, action = "edit" },
-							-- split open files
-							{ key = "v",                            action = "vsplit" },
-							{ key = "h",                            action = "split" },
-							-- show hidden files
-							{ key = "i",                            action = "toggle_custom" }, -- connect with filters
-							{ key = ".",                            action = "toggle_dotfiles" }, -- hide (dotfiles)
-							-- file operations
-							{ key = "<F5>",                         action = "refresh" },
-							{ key = "a",                            action = "create" },
-							{ key = "d",                            action = "remove" },
-							{ key = "r",                            action = "rename" },
-							{ key = "x",                            action = "cut" },
-							{ key = "c",                            action = "copy" },
-							{ key = "p",                            action = "paste" },
-							{ key = "s",                            action = "system_open" },
-						},
-					},
-					-- line numbers
-					number = false,
-					relativenumber = false,
-					-- show icon
-					signcolumn = 'yes',
-				},
-				actions = {
-					open_file = {
-						-- resize window on open
-						resize_window = true,
-						-- quite tree when open files
-						quit_on_open = true,
-					},
-				},
-
-				system_open = {
-					cmd = 'open',
-				},
-			}
-		end,
-	},
-	{
-		"ellisonleao/glow.nvim",
+				end,
+				desc = "Flash Treesitter Search",
+			},
+			{
+				"<c-s>",
+				mode = { "c" },
+				function()
+					require("flash").toggle()
+				end,
+				desc = "Toggle Flash Search",
+			},
+		},
 		config = true,
 	},
-	-- {
-	-- 	"folke/which-key.nvim",
-	-- 	config = true,
-	-- },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        },
+        keys = {
+            { "<leader>m", "<cmd>Neotree toggle<CR>", desc = "Open the neo-tree", mode = { "n", "v" } }
+        },
+        config = true,
+    },
+	{
+		"ellisonleao/glow.nvim",
+		event = "VeryLazy",
+		config = true,
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		config = true,
+	},
 	{
 		-- enhance a/i to text objects
 		'echasnovski/mini.ai',
+		event = "VeryLazy",
 		config = true,
 	},
 	{
 		"echasnovski/mini.comment",
+		event = "VeryLazy",
 		config = true,
 	},
 }
