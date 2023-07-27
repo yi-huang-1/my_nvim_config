@@ -1,7 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
-	cmd = {"Mason", "Neoconf"},
-	event = {"BufReadPost", "BufNewFile"},
+	cmd = { "Mason", "Neoconf" },
+	event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
@@ -25,13 +25,24 @@ return {
 					telemetry = { enable = false },
 				},
 			},
-			pyright = {},
+			-- pyright = {},
 			jsonls = {},
 			marksman = {},
 			volar = {},
 			dockerls = {},
 			docker_compose_language_service = {},
 			bashls = {},
+			-- jedi_language_server = {},
+			pylsp = {
+				pylsp = {
+					plugins = {
+						pycodestyle = {
+							ignore = { 'W391' },
+							maxLineLength = 100
+						}
+					}
+				}
+			},
 		}
 		require("neoconf").setup({})
 		-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
