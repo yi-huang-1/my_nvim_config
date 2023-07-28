@@ -25,7 +25,7 @@ return {
 					telemetry = { enable = false },
 				},
 			},
-			-- pyright = {},
+			pyright = {},
 			jsonls = {},
 			marksman = {},
 			volar = {},
@@ -33,16 +33,16 @@ return {
 			docker_compose_language_service = {},
 			bashls = {},
 			-- jedi_language_server = {},
-			pylsp = {
-				pylsp = {
-					plugins = {
-						pycodestyle = {
-							ignore = { 'W391' },
-							maxLineLength = 100
-						}
-					}
-				}
-			},
+			-- pylsp = {
+			-- 	pylsp = {
+			-- 		plugins = {
+			-- 			pycodestyle = {
+			-- 				ignore = { 'W391' },
+			-- 				maxLineLength = 100
+			-- 			}
+			-- 		}
+			-- 	}
+			-- },
 		}
 		require("neoconf").setup({})
 		-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
