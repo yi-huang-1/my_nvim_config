@@ -96,11 +96,11 @@ return {
 		event = "VeryLazy",
 		config = true,
 	},
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		config = true,
-	},
+	-- {
+	-- 	"folke/which-key.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = true,
+	-- },
 	{
 		-- enhance a/i to text objects
 		'echasnovski/mini.ai',

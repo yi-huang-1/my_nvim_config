@@ -2,9 +2,9 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = "VeryLazy",
-		dependencies = {
-			"nvim-treesitter/playground"
-		},
+		-- dependencies = {
+		-- 	"nvim-treesitter/playground"
+		-- },
 		main = "nvim-treesitter.configs",
 		build = ":TSUpdate",
 		opts = {
