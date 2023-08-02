@@ -13,7 +13,7 @@ vim.wo.cursorline = true
 -- show left signs
 vim.wo.signcolumn = "yes"
 -- right reference column number
-vim.wo.colorcolumn = "80"
+vim.wo.colorcolumn = "130"
 -- indent tab
 vim.o.tabstop = 4
 vim.bo.tabstop = 4
@@ -56,7 +56,7 @@ vim.o.swapfile = false
 -- smaller updatetime
 vim.o.updatetime = 300
 -- timeoutlen
-vim.o.timeoutlen = 500
+vim.o.timeoutlen = 200
 -- split window
 vim.o.splitbelow = true
 vim.o.splitright = true
