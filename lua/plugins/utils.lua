@@ -96,11 +96,11 @@ return {
 		event = "VeryLazy",
 		config = true,
 	},
-	-- {
-	-- 	"folke/which-key.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = true,
-	-- },
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		config = true,
+	},
 	{
 		-- enhance a/i to text objects
 		'echasnovski/mini.ai',
@@ -121,5 +121,19 @@ return {
 				-- Configuration here, or leave empty to use defaults
 			})
 		end
+	},
+	{
+		"folke/trouble.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons"
+		},
+		keys = {
+			{ "<leader>xx", [[<cmd>TroubleToggle<cr>]],                       mode = { "n" } },
+			{ "<leader>xw", [[<cmd>TroubleToggle workspace_diagnostics<cr>]], mode = { "n" } },
+			{ "<leader>xd", [[<cmd>TroubleToggle document_diagnostics<cr>]],  mode = { "n" } },
+			{ "<leader>xl", [[<cmd>TroubleToggle loclist<cr>]],               mode = { "n" } },
+		},
+		event = "VeryLazy",
+		config = true,
 	}
 }
