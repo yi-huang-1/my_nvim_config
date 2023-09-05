@@ -84,8 +84,8 @@ local pluginKeys = {}
 
 -- bufferline
 -- swith tab
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
+map("n", "<A-t>h", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<A-t>l", ":BufferLineCycleNext<CR>", opt)
 -- close tab
 -- "moll/vim-bbye"
 map("n", "<C-w>", ":bw<CR>", opt)
