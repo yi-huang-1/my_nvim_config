@@ -85,3 +85,8 @@ vim.opt.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
 -- exrc
 vim.opt.exrc = true
 
+-- keybord layout
+-- KEY_LAYOUT = 'qwerty'
+KEY_LAYOUT = 'colemak'
+
+

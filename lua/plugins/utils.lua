@@ -1,11 +1,20 @@
 return {
 	{
 		"rhysd/accelerated-jk",
-		keys = {
-			{ "j", "<Plug>(accelerated_jk_gj)" },
-			{ "k", "<Plug>(accelerated_jk_gk)" },
-
-		},
+		config = function()
+			if KEY_LAYOUT == 'colemak' then
+				vim.keymap.set("n", "n", "<Plug>(accelerated_jk_gj)")
+				vim.keymap.set("n", "e", "<Plug>(accelerated_jk_gk)")
+			else
+				vim.keymap.set("n", "j", "<Plug>(accelerated_jk_gj)")
+				vim.keymap.set("n", "k", "<Plug>(accelerated_jk_gk)")
+			end
+		end
+		-- keys = {
+		-- 	{ "n", "<Plug>(accelerated_jk_gj)" },
+		-- 	{ "e", "<Plug>(accelerated_jk_gk)" },
+		--
+		-- },
 	},
 	{
 		"folke/persistence.nvim",
@@ -135,5 +144,6 @@ return {
 		},
 		event = "VeryLazy",
 		config = true,
-	}
+	},
+
 }
