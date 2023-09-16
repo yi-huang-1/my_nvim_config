@@ -12,12 +12,13 @@ local opt = { noremap = true, silent = true }
 -- vim.keymap.set({"n", "i"}, "<Down>", "<Nop>")
 
 if KEY_LAYOUT == 'colemak' then
-	map("", "n", "j", opt)
-	map("", "e", "k", opt)
-	map("", "i", "l", opt)
-
 	map("", "k", "i", opt)
 	map("", "K", "I", opt)
+
+	map("", "n", "j", opt)
+	map("", "e", "k", opt)
+	map({"n", "t"}, "i", "l", opt)
+	map({"v"}, "o", "l", opt)
 end
 
 --
