@@ -16,6 +16,8 @@ if KEY_LAYOUT == 'colemak' then
 	map("", "K", "I", opt)
 
 	map("", "n", "j", opt)
+	map("", "j", "n", opt)
+	map("", "J", "N", opt)
 	map("", "e", "k", opt)
 	map({"n", "t"}, "i", "l", opt)
 	map({"v"}, "o", "l", opt)
