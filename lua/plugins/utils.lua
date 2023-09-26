@@ -109,6 +109,11 @@ return {
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		config = true,
+		opts = {
+			triggers_blacklist = {
+				i = {"n", "e"},
+			}
+		},
 	},
 	{
 		-- enhance a/i to text objects
