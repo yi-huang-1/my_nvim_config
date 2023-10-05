@@ -2,9 +2,11 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = "VeryLazy",
-		-- dependencies = {
-		-- 	"nvim-treesitter/playground"
-		-- },
+		dependencies = {
+			-- "nvim-treesitter/playground"
+			--
+			{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
+		},
 		main = "nvim-treesitter.configs",
 		build = ":TSUpdate",
 		opts = {
