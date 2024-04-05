@@ -1,26 +1,16 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
+-- Customize Treesitter
+
+---@type LazySpec
 return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		event = "VeryLazy",
-		dependencies = {
-			-- "nvim-treesitter/playground"
-			--
-			{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
-		},
-		main = "nvim-treesitter.configs",
-		build = ":TSUpdate",
-		opts = {
-			-- A list of parser names, or "all" (the five listed parsers should always be installed)
-			ensure_installed = "all",
-			highlight = {
-				enable = true,
-			},
-			indent = {
-				enable = true,
-			},
-		},
-		playground = {
-			enable = true,
-		},
-	},
+  "nvim-treesitter/nvim-treesitter",
+  opts = function(_, opts)
+    -- add more things to the ensure_installed table protecting against community packs modifying it
+    opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+      "lua",
+      "vim",
+      -- add more arguments for adding more treesitter parsers
+    })
+  end,
 }

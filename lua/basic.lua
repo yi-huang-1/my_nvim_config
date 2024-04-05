@@ -1,6 +1,6 @@
 -- utf 8
 vim.g.encoding = "UTF-8"
-vim.g.fileencoding = 'utf-8'
+vim.g.fileencoding = "utf-8"
 
 -- jkhl move cursor keeping 8 lines
 vim.o.scrolloff = 8
@@ -44,7 +44,7 @@ vim.bo.autoread = true
 -- warp lines
 vim.wo.wrap = false
 -- jump to next line <Left><Right> at front or end of lines
-vim.o.whichwrap = '<,>,[,]'
+vim.o.whichwrap = "<,>,[,]"
 -- allow hidding modified buffer
 vim.o.hidden = true
 -- mouse
@@ -72,7 +72,7 @@ vim.o.listchars = "space:·"
 -- enhanced complete
 vim.o.wildmenu = true
 -- Don't pass messages to |ins-completin menu|
-vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.shortmess = vim.o.shortmess .. "c"
 -- max lines of auto-complete
 vim.o.pumheight = 10
 -- show tab line
@@ -81,12 +81,6 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 -- undo dir
 vim.opt.undofile = true
-vim.opt.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
+vim.opt.undodir = vim.fn.expand "$HOME/.local/share/nvim/undo"
 -- exrc
 vim.opt.exrc = true
-
--- keybord layout
--- KEY_LAYOUT = 'qwerty'
-KEY_LAYOUT = 'colemak'
-
-
